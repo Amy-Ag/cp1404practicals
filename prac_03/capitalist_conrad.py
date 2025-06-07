@@ -19,8 +19,9 @@ FILENAME="stock_simulator.txt"
 price = INITIAL_PRICE
 number_of_days=0
 out_file=open(FILENAME,"w")
-print(f"Starting price: ${price:,.2f}")
-print(f"Starting price: ${price:,.2f}", file=out_file)
+start_message= f"Starting price: ${price:,.2f}"
+print(start_message)
+print(start_message,file= out_file)
 
 while MIN_PRICE <= price <= MAX_PRICE:
     price_change = 0
@@ -37,7 +38,8 @@ while MIN_PRICE <= price <= MAX_PRICE:
         price_change = random.uniform(-MAX_DECREASE, 0)
 
     price *= (1 + price_change)
-    print(f"On day {number_of_days} price is: ${price:,.2f}")
-    print(f"On day {number_of_days} price is: ${price:,.2f}", file = out_file)
+    message=f"On day {number_of_days} price is: ${price:,.2f}"
+    print(message)
+    print(message, file= out_file)
 
 out_file.close()
