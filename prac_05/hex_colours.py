@@ -15,3 +15,4 @@ while color_name != "":
     except KeyError:
         print("Invalid color name")
     color_name = input("Enter a color: ").lower()
+print("Thanks for playing!")
