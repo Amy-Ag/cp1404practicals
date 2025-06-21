@@ -16,10 +16,11 @@ print(CODE_TO_NAME)
 
 state_code = input("Enter short state: ").upper()
 while state_code != "":
-    if state_code in CODE_TO_NAME:
-        print(state_code, "is", CODE_TO_NAME[state_code])
-    else:
-        print("Invalid short state")
+    #EAFP
+    try:
+        print(f"{state_code} is {CODE_TO_NAME.values()}")
+    except KeyError:
+        print("Invalid state input")
     state_code = input("Enter short state: ").upper()
 print("\nAll states and names:")
 for code, name in CODE_TO_NAME.items():
