@@ -1,9 +1,8 @@
 """
 Wimbledon
 Estimated: 45 minutes
-Actual:
+Actual: minutes
 """
-from logging import LogRecord
 
 FILENAME= "wimbledon.csv"
 COUNTRY_INDEX=1
@@ -22,9 +21,9 @@ def clean_record(records):
     for record in records:
         countries.add(record[COUNTRY_INDEX])
         try:
-            champion_count[record[COUNTRY_INDEX]] += 1
+            champion_count[record[CHAMPION_INDEX]] += 1
         except KeyError:
-            champion_count[record[COUNTRY_INDEX]] = 1
+            champion_count[record[CHAMPION_INDEX]] = 1
     return champion_count, countries
 
 def display_result(champion_count, countries):
@@ -36,9 +35,12 @@ def display_result(champion_count, countries):
     print(" ".join(sorted(countries)))
 
 def get_records(filename):
+    """Read the file."""
     records = []
     with open(filename, "r", encoding="utf-8-sig") as in_file:
         in_file.readline()
         for line in in_file:
             records.append(line.strip().split(","))
         return records
+
+main()
