@@ -1,10 +1,17 @@
-COLOURS={"Alice Blue":"#f0f8ff",
-         "Baby Pink":"#f4c2c2",
-         "Camel":"c19a6b",
-         "Daffodil":"#ffff31",
-         "Emerald":"#50c878",
-         "Fawn":"#e5aa70",
-         "Ginger":"#b06500",
-         "Han Blue":"#446ccf",
-         "Indigo":"#4b0082",
-         "Jade":"#00a86b"}
+COLOURS={"alice blue":"#f0f8ff",
+         "baby pink":"#f4c2c2",
+         "camel":"c19a6b",
+         "daffodil":"#ffff31",
+         "emerald":"#50c878",
+         "fawn":"#e5aa70",
+         "ginger":"#b06500",
+         "han blue":"#446ccf",
+         "indigo":"#4b0082",
+         "jade":"#00a86b"}
+color_name=input("Enter a color: ").lower()
+while color_name != "":
+    try:
+        print(f"{color_name} is {COLOURS[color_name]}")
+    except KeyError:
+        print("Invalid color name")
+    color_name = input("Enter a color: ").lower()
