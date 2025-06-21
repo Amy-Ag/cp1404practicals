@@ -13,15 +13,16 @@ CODE_TO_NAME = {"QLD": "Queensland",
                 "VIC": "Victoria", "TAS": "Tasmania",
                 "SA": "South Australia"}
 print(CODE_TO_NAME)
-
+user_entries=[]
 state_code = input("Enter short state: ").upper()
 while state_code != "":
     #EAFP
     try:
-        print(f"{state_code} is {CODE_TO_NAME.values()}")
+        print(f"{state_code} is {CODE_TO_NAME[state_code]}")
+        state_name= CODE_TO_NAME[state_code]
+        user_entries.append((state_code,state_name))
     except KeyError:
         print("Invalid state input")
     state_code = input("Enter short state: ").upper()
-print("\nAll states and names:")
-for code, name in CODE_TO_NAME.items():
-    print(f"{code:<3} is {name}")
+for code, state_name in user_entries:
+    print(f"{code:<3} is {state_name}")
