@@ -12,9 +12,11 @@ CODE_TO_NAME = {"QLD": "Queensland",
                 "ACT": "Australian Capital Territory",
                 "VIC": "Victoria", "TAS": "Tasmania",
                 "SA": "South Australia"}
+
 print(CODE_TO_NAME)
 user_entries=[]
 state_code = input("Enter short state: ").upper()
+
 while state_code != "":
     #EAFP
     try:
