@@ -20,4 +20,13 @@ def main():
         email_to_name[email]= name
         email= input("Email: ").strip()
     print()
+    for email, name in email_to_name.items():
+        print(f"{name} ({email})")
+
+
+def extract_name_from_email(email):
+    split_name = email.split("@")[0]
+    substitute_spaces = split_name.replace('.', ' ').replace('_', ' ').split()
+    return ' '.join(substitute_spaces).title()
+
 
