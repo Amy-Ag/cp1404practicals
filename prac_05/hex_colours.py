@@ -1,0 +1,10 @@
+COLOURS={"Alice Blue":"#f0f8ff",
+         "Baby Pink":"#f4c2c2",
+         "Camel":"c19a6b",
+         "Daffodil":"#ffff31",
+         "Emerald":"#50c878",
+         "Fawn":"#e5aa70",
+         "Ginger":"#b06500",
+         "Han Blue":"#446ccf",
+         "Indigo":"#4b0082",
+         "Jade":"#00a86b"}
