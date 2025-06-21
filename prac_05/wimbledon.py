@@ -42,5 +42,4 @@ def get_records(filename):
         for line in in_file:
             records.append(line.strip().split(","))
         return records
-
 main()
