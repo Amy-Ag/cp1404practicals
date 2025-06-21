@@ -29,4 +29,4 @@ def extract_name_from_email(email):
     substitute_spaces = split_name.replace('.', ' ').replace('_', ' ').split()
     return ' '.join(substitute_spaces).title()
 
-
+main()
