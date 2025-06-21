@@ -9,7 +9,8 @@ CODE_TO_NAME = {"QLD": "Queensland",
                 "NT": "Northern Territory",
                 "WA": "Western Australia",
                 "ACT": "Australian Capital Territory",
-                "VIC": "Victoria", "TAS": "Tasmania",
+                "VIC": "Victoria",
+                "TAS": "Tasmania",
                 "SA": "South Australia"}
 
 print(CODE_TO_NAME)
