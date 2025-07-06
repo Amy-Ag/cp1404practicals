@@ -1,6 +1,6 @@
 """
 Estimated: 40 minutes
-Actual: mins
+Actual: 30mins
 """
 
 class Guitar:
