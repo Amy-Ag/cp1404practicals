@@ -24,6 +24,8 @@ def main():
             save_projects(filename, projects)
         elif choice == "d":
             display_projects(projects)
+        elif choice == "a":
+            add_new_project(projects)
         else:
             print("Invalid choice")
         print(MENU)
@@ -64,14 +66,6 @@ def display_projects(projects):
     for project in completed_projects:
         print(f"   {project}")
 
-def save_projects(filename, projects):
-    """Save projects to file and return as a list of Project objects."""
-    with open(filename, "w") as out_file:
-        print("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=out_file)
-        for project in projects:
-            print(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t{project.priority}\t{project.cost_estimate}"
-                  f"\t{project.completion_percentage}", file=out_file)
-
 def filter_projects(projects):
     """Filter projects based on start date and priority."""
     date_string= input("Show projects that start after date (dd/mm/yyyy): ")
@@ -84,6 +78,37 @@ def filter_projects(projects):
     filtered_projects.sort()
     for project in filtered_projects:
         print(project)
+
+def add_new_project(projects):
+    """Add a new project to the list of projects."""
+    print("Let's add a new project")
+    name = input("Name: ")
+    start_date_string = input("Start date (dd/mm/yyyy): ")
+    try:
+        datetime.strptime(start_date_string, "%d/%m/%Y")
+    except ValueError:
+        print("Invalid date format. Please enter date as dd/mm/yyyy.")
+        return
+    priority = int(input("Priority: "))
+    cost_estimate = float(input("Cost estimate: $"))
+    completion = int(input("Percent complete: "))
+
+    new_project = Project(name, start_date_string, priority, cost_estimate, completion)
+    projects.append(new_project)
+
+def update_projects(projects):
+    """Update projects based on start date and priority."""
+
+
+def save_projects(filename, projects):
+    """Save projects to file and return as a list of Project objects."""
+    with open(filename, "w") as out_file:
+        print("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=out_file)
+        for project in projects:
+            print(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t{project.priority}\t{project.cost_estimate}"
+                  f"\t{project.completion_percentage}", file=out_file)
+
+
 
 
 
