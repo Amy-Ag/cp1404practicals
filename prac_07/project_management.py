@@ -1,6 +1,6 @@
 """
 Estimate: 45 minutes
-Actual:
+Actual: 1 hour
 """
 from datetime import datetime
 from project import Project
