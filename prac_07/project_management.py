@@ -6,7 +6,7 @@ from datetime import datetime
 from project import Project
 
 FILENAME="projects.txt"
-MENU= "\n(L)oad projects\n(S)ave projects\n(D)isplay projects\n(F)ilter projects by date\n(A)dd new project\n(U)pdate project\n(Q)uit"
+MENU= "(L)oad projects\n(S)ave projects\n(D)isplay projects\n(F)ilter projects by date\n(A)dd new project\n(U)pdate project\n(Q)uit"
 
 def main():
     print("Welcome to Pythonic Project Management")
@@ -24,6 +24,8 @@ def main():
             save_projects(filename, projects)
         elif choice == "d":
             display_projects(projects)
+        elif choice == "f":
+            filter_projects(projects)
         elif choice == "a":
             add_new_project(projects)
         elif choice == "u":
@@ -56,8 +58,8 @@ def load_projects(filename):
 
 def display_projects(projects):
     """Display sorted incomplete and completed projects."""
-    incomplete_projects = [project for project in projects if not project.is_completed()]
-    completed_projects = [project for project in projects if project.is_completed()]
+    incomplete_projects = [project for project in projects if not project.is_complete()]
+    completed_projects = [project for project in projects if project.is_complete()]
     incomplete_projects.sort()
     completed_projects.sort()
 
@@ -76,7 +78,7 @@ def filter_projects(projects):
     except ValueError:
         print("Invalid date format. Please enter as dd/mm/yyyy.")
         return
-    filtered_projects = [project for project in projects if project.start_date > filter_date]
+    filtered_projects = [project for project in projects if project.start_date >= filter_date]
     filtered_projects.sort()
     for project in filtered_projects:
         print(project)
