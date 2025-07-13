@@ -26,6 +26,8 @@ def main():
             display_projects(projects)
         elif choice == "a":
             add_new_project(projects)
+        elif choice == "u":
+            update_project(projects)
         else:
             print("Invalid choice")
         print(MENU)
@@ -96,9 +98,24 @@ def add_new_project(projects):
     new_project = Project(name, start_date_string, priority, cost_estimate, completion)
     projects.append(new_project)
 
-def update_projects(projects):
+def update_project(projects):
     """Update projects based on start date and priority."""
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
+    try:
+        choice = int(input("Project choice: "))
+        project_to_update = projects[choice]
+    except (ValueError, IndexError):
+        print("Invalid project number.")
+        return
 
+    print(project_to_update)
+    new_completion = input("New Percentage: ")
+    if new_completion != "":
+        project_to_update.completion_percentage = int(new_completion)
+    new_priority = input("New Priority: ")
+    if new_priority != "":
+        project_to_update.priority = int(new_priority)
 
 def save_projects(filename, projects):
     """Save projects to file and return as a list of Project objects."""
