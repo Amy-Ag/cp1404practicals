@@ -2,23 +2,23 @@
 Estimate: 45 minutes
 Actual:
 """
-
+from datetime import datetime
 from project import Project
 
 FILENAME="projects.txt"
+MENU= "\n(L)oad projects\n(S)ave projects\n(D)isplay projects\n(F)ilter projects by date\n(A)dd new project\n(U)pdate project\n(Q)uit"
 
 def main():
     print("Welcome to Pythonic Project Management")
     projects= load_projects(FILENAME)
     print(f"Loaded {len(projects)} projects from {FILENAME}.")
-    MENU= "\n(L)oad projects\n(S)ave projects\n(D)isplay projects\n(Q)uit"
     print(MENU)
     choice = input(">>>").lower()
 
     while choice != "q":
         if choice == "l":
-            filname= input("Filename: ")
-            projects= load_projects(filname)
+            filename= input("Filename: ")
+            projects= load_projects(filename)
         elif choice == "s":
             filename = input("Filename to save to: ")
             save_projects(filename, projects)
@@ -71,5 +71,20 @@ def save_projects(filename, projects):
         for project in projects:
             print(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t{project.priority}\t{project.cost_estimate}"
                   f"\t{project.completion_percentage}", file=out_file)
+
+def filter_projects(projects):
+    """Filter projects based on start date and priority."""
+    date_string= input("Show projects that start after date (dd/mm/yyyy): ")
+    try:
+        filter_date = datetime.strptime(date_string, "%d/%m/%Y").date()
+    except ValueError:
+        print("Invalid date format. Please enter as dd/mm/yyyy.")
+        return
+    filtered_projects = [project for project in projects if project.start_date > filter_date]
+    filtered_projects.sort()
+    for project in filtered_projects:
+        print(project)
+
+
 
 main()
