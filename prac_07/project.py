@@ -26,5 +26,5 @@ class Project:
 
     def __str__(self):
         """Return string representation of project."""
-        return f"{self.name}, start:{self.start_date.strftime('%d/%m/%Y')
-                }, priority:{self.priority}, estimate: ${self.cost_estimate:,.2f}, completion:{self.completion_percentage}%"
+        return (f"{self.name}, start:{self.start_date.strftime('%d/%m/%Y')}"
+                f", priority:{self.priority}, estimate: ${self.cost_estimate:,.2f}, completion:{self.completion_percentage}%")
