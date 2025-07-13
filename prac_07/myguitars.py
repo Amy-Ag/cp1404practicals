@@ -4,6 +4,7 @@ FILENAME="guitars.csv"
 
 def main():
     guitars = load_guitars(FILENAME)
+    guitars.sort()
     display_guitars(guitars)
 
 def load_guitars(filename):
@@ -21,7 +22,7 @@ def load_guitars(filename):
 def display_guitars(guitars):
     """Display the guitar list."""
     print("These are my guitars: ")
-    for i, guitar in range(guitars,1):
+    for i, guitar in enumerate(guitars,1):
         print(guitar)
 
 if __name__ == '__main__':
