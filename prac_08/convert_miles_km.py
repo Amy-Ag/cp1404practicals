@@ -22,6 +22,7 @@ class ConvertMiles(App):
         value = self.get_validated_miles() + change
         self.root.ids.input_miles.text = str(value)
         self.handle_calculate()
+
     def get_validated_miles(self):
         """."""
         try:
@@ -29,3 +30,5 @@ class ConvertMiles(App):
             return value
         except ValueError:
             return 0
+
+ConvertMiles().run()
