@@ -1,5 +1,7 @@
 BoxLayout:
     orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
     TextInput:
         id: input_number
         text: '7'
@@ -12,4 +14,6 @@ BoxLayout:
     Label:
         id: output_label
         font_size: 48
-        color: (1, 0, 1, 1)
+        color: (1, 0.4, 0.7, 1)
+    Label:
+        text: 'Enter a number and press "Square"'
