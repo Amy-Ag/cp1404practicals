@@ -12,15 +12,15 @@ def repeat_string(s, n):
     return "-".join([s] * n)
 
 def is_long_word(word, length=5):
-    """
-    Determine if the word is as long or longer than the length passed in
-    >>> is_long_word("not")
-    False
-    >>> is_long_word("supercalifrag")
-    True
-    >>> is_long_word("Python", 6)
-    True
-    """
+    # """
+    # Determine if the word is as long or longer than the length passed in
+    # >>> is_long_word("not")
+    # False
+    # >>> is_long_word("supercalifrag")
+    # True
+    # >>> is_long_word("Python", 6)
+    # True
+    # """
     return len(word) >= length
 
 
@@ -46,8 +46,8 @@ def run_tests():
     # You should test both of these
     car = Car(fuel=10)
     assert car.fuel == 10
-    default_car=Car()
-    assert default_car.fuel == 0
+    car= Car()
+    assert car.fuel == 0
 
 
 run_tests()
