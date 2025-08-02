@@ -1,6 +1,7 @@
 import wikipedia
 
 def main():
+    """Find wikipedia page for certain word."""
     title= input("Enter page title or search phrase: ").strip()
     while title != "":
         try:
