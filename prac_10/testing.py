@@ -38,7 +38,7 @@ def run_tests():
     # used to see if Car's init method sets the odometer correctly
     # this should pass (no output)
     car = Car()
-    assert car.odometer == 0, "Car does not set odometer correctly"
+    assert car._odometer == 0, "Car does not set odometer correctly"
 
     # TODO: 2. write assert statements to show if Car sets the fuel correctly
     # Note that Car's __init__ function sets the fuel in one of two ways:
@@ -68,8 +68,9 @@ doctest.testmod()
 # and one more that you decide is a useful test.
 # Run your doctests and watch the tests fail.
 # Then write the body of the function so that the tests pass.
-def phrase_to_sentence(phrase):
-    phrase = phrase.capitalize()
-    if not phrase.endswith("."):
-        phrase += "."
-    return phrase
+def format_to_sentence(phrase):
+    """Change phrase into a sentence."""
+    sentence = phrase.capitalize()
+    if not sentence.endswith("."):
+        sentence = f"{sentence}."
+    return sentence
